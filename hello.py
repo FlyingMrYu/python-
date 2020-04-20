@@ -217,13 +217,56 @@
 # print(list(i))
 
 # reduce
-from functools import reduce
-def fn(x,y):
-    return x*10+y
+# from functools import reduce
+# def fn(x,y):
+#     return x*10+y
 
-def char2num(s):
-    digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
-    print(s,digits[s])
-    return digits[s]
-print(reduce(fn,map(char2num,'13579')))
+# def char2num(s):
+#     digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+#     print(s,digits[s])
+#     return digits[s]
+# print(reduce(fn,map(char2num,'13579')))
 # print(reduce(fn,[1,3,5,7,9]))
+
+# filter 过滤
+# l = [1,2,34,5,5,6,7]
+
+# def filters(x):
+#     return x%2 == 1
+# a = list(filter(filters,l))
+# print(a)
+
+# def _odd_iter():
+#     n = 1
+#     while True:
+#         n = n + 2
+#         yield n
+
+# sorted 排序
+# l = [1,32,5,67,13,5,71,-1,-23,5]
+
+# print(sorted(l))
+# print(sorted(l,key=abs))
+
+# b = ['bob', 'about', 'Zoo', 'Credit']
+# print(sorted(b,key=str.lower,reverse=True))
+
+# 返回函数
+
+def calc_sum(*args):
+    ax = 0
+    for n in args:
+        ax = ax + n
+    return ax
+
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax +n
+        return ax
+    return sum
+
+f = lazy_sum(1,3,5,7,9)
+
+print(f())
