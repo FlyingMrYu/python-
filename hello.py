@@ -253,20 +253,74 @@
 
 # 返回函数
 
-def calc_sum(*args):
-    ax = 0
-    for n in args:
-        ax = ax + n
-    return ax
+# def calc_sum(*args):
+#     ax = 0
+#     for n in args:
+#         ax = ax + n
+#     return ax
 
-def lazy_sum(*args):
-    def sum():
-        ax = 0
-        for n in args:
-            ax = ax +n
-        return ax
-    return sum
+# def lazy_sum(*args):
+#     def sum():
+#         ax = 0
+#         for n in args:
+#             ax = ax +n
+#         return ax
+#     return sum
 
-f = lazy_sum(1,3,5,7,9)
+# f = lazy_sum(1,3,5,7,9)
 
-print(f())
+# print(f())
+
+# 匿名函数
+
+# f = lambda x:x*x
+# print(f(2))
+
+
+# l  = int('12',base=8)
+# print(l)
+
+# def lin(x,base = 2):
+#     return int(x,base)
+
+# print(lin('100'))
+
+
+# import functools
+
+# int2 = functools.partial(int,base=2)
+# print(int2('100'))
+
+# import hell
+# print(hell.test())
+
+# 面向对象编程
+
+# std1 = { 'name': 'Michael', 'score': 928 }
+# std2 = { 'name': 'Bob', 'score': 81 }
+
+# def print_score(std):
+#     print(std['name'], std['score'])
+# print_score(std1)
+
+class Student(object):
+    def __init__(self,name,score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print(self.name,self.score)
+        
+bart = Student('Bart Simpson', 59)
+bart.print_score()
+        
+# class Student(object):
+#     def __init__(self, name, score):
+#         self.name = name
+#         self.score = score
+
+#     def print_score(self):
+#         print(self.name, self.score)
+
+# bart = Student('Bart Simpson', 59)
+# bart.print_score()
