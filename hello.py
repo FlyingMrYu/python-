@@ -324,3 +324,4 @@ bart.print_score()
 
 # bart = Student('Bart Simpson', 59)
 # bart.print_score()
+print('master')
