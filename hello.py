@@ -303,16 +303,16 @@
 #     print(std['name'], std['score'])
 # print_score(std1)
 
-class Student(object):
-    def __init__(self,name,score):
-        self.name = name
-        self.score = score
+# class Student(object):
+#     def __init__(self,name,score):
+#         self.name = name
+#         self.score = score
 
-    def print_score(self):
-        print(self.name,self.score)
+#     def print_score(self):
+#         print(self.name,self.score)
         
-bart = Student('Bart Simpson', 59)
-bart.print_score()
+# bart = Student('Bart Simpson', 59)
+# bart.print_score()
         
 # class Student(object):
 #     def __init__(self, name, score):
@@ -324,7 +324,15 @@ bart.print_score()
 
 # bart = Student('Bart Simpson', 59)
 # bart.print_score()
-print('master')
-print('dev')
-print('bug')
-print('43444')
+# print('master')
+# print('dev')
+# print('bug')
+# print('43444')
+
+class Student(object):
+    def __init__(self,name,score):
+        self.name = name
+        self.score = score
+
+bart = Student('fdsa',2321)
+print(bart.name,Student)
