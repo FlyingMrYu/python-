@@ -362,11 +362,118 @@
 
 # print(dir('afds'))
 # print('fas'.__len__())
-class MyObject(object):
-    def __init__(self):
-        self.x = 9
+# class MyObject(object):
+#     def __init__(self):
+#         self.x = 9
 
-    def power(self):
-        return self.x * self.x
-obj = MyObject()
-print(hasattr(obj,'x'))
+#     def power(self):
+#         return self.x * self.x
+# obj = MyObject()
+# print(hasattr(obj,'x'))
+
+# 使用__slots__
+
+# class Student(object):
+#     __slots__ = ('name','age')
+
+# s = Student()
+
+# s.name = 'yushaoxia'
+# s.age = 25
+
+# 使用@preperty
+# class Student(object):
+#     @property
+#     def score(self):
+#          return self._score
+#     @score.setter
+#     def score(self, value):
+#         if not isinstance(value, int):
+#             raise ValueError('score must be an integer!')
+#         if value < 0 or value > 100:
+#             raise ValueError('score must between 0 ~ 100!')
+#         self._score = value
+
+# s = Student()
+# s.score = 60
+# print( s.score)
+
+# 定制类
+
+# class Student(object):
+#     def __init__(self,name):
+#         self.name = name
+#     def __str__(self):
+#         return 'Student object (name: %s)' %self.name
+
+# print(Student('yuhongyang'))
+
+# class Fib(object):
+#     def __init__(self):
+#         self.a ,self.b = 0,1
+
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         self.a , self.b = self.b ,self.a+self.b
+#         if self.a > 1000:
+#             raise StopIteration()
+#         return self.a
+# # for n in Fib():
+# #     print(n)
+# print()[5]
+
+# class Fib(object):
+#     def __getitem__(self,n):
+#         a ,b = 1,1
+#         for x in range(n):
+#             a,b=b ,a+b
+#         return a
+# f = Fib()
+# print(f[0])
+
+# class Fib(object):
+#     def __getitem__(self,n):
+#         if isinstance(n,int):
+#             a,b=1,1
+#             for x in range(n):
+#                 a,b=b,a+b
+#             return a
+#         if isinstance(n,slice):
+#             start = n.start
+#             stop = n.stop
+#             if start is None:
+#                 start = 0
+#             a,b=1,1
+#             L = []
+#             for x in range(stop):
+#                 if x >= start:
+#                     L.append(a)
+#                 a,b = b,a+b
+#             return L
+
+# f = Fib()
+# print(f[0])
+
+# class Chain(object):
+#     def __init__(self,path=''):
+#         self._path = path
+
+#     def __getattr__(self,path):
+#         return Chain('%s/%s' %(self._path,path))
+#     def __str__(self):
+#         return self._path
+#     __repr__ = __str__
+
+# print(Chain().status.sdfds.fsdf.listf)
+
+# from enum import Enum,unique
+# @unique
+# class Weekday(Enum):
+#     s = 1
+#     q = 2
+#     r = 3
+#     t = 4
+#     y = 5
+# dya1 = Weekday.s
+# print(dya1,dya1.value)
