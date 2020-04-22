@@ -329,10 +329,44 @@
 # print('bug')
 # print('43444')
 
-class Student(object):
-    def __init__(self,name,score):
-        self.name = name
-        self.score = score
+# class Student(object):
+#     def __init__(self,name,score):
+#         self.name = name
+#         self.score = score
 
-bart = Student('fdsa',2321)
-print(bart.name,Student)
+# bart = Student('fdsa',2321)
+# print(bart.name,Student)
+
+#  继承和多态
+# class Animal(object):
+#     def run(self):
+#         print('Animal is running')
+
+#     def eat(self):
+#         print('Eating meat...')
+
+# class Dog(Animal):
+#     pass
+
+# class Cat(Animal):
+#     pass
+
+# dog = Dog()
+# print(dog.run())
+
+# 获取对象信息
+# l = type(123)
+# print(l)
+
+# print(type(a))
+
+# print(dir('afds'))
+# print('fas'.__len__())
+class MyObject(object):
+    def __init__(self):
+        self.x = 9
+
+    def power(self):
+        return self.x * self.x
+obj = MyObject()
+print(hasattr(obj,'x'))
