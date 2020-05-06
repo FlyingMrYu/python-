@@ -604,3 +604,193 @@
 # n = int(s)
 # pdb.set_trace() # 运行到这里会自动暂停
 # print(10 / n)
+# 单元测试
+# d = dict(a=1,b=2)
+# print(d['a'])
+
+# import unittest
+# from mydict import Dict
+
+# class TestDict(unittest.TestCase):
+#    def test__init(self):
+#         d = Dict(a=1,b='test')
+#         self.assertEqual(d,a,1)
+#         self.assertEqual(d,b,'test')
+#         self.assertTrue(isinstance(d,dict))
+#     def test_key(self):
+#         d = Dict()
+#         d['key'] = 'value'
+#         self.assertEqual(d.key,'value')
+#     def test_attr(self):
+#         d = Dict()
+#         d.key
+
+# def abs(n):
+#     '''
+#     Function to get absolute value of number.
+    
+#     Example:
+    
+#     >>> abs(1)
+#     1
+#     >>> abs(-1)
+#     1
+#     >>> abs(0)
+#     0
+#     '''
+#     return n if n >= 0 else (-n)
+# print(abs(-2))
+
+# 文件读写
+# try:
+#     f = open('./python-/test.text3','r')
+#     print(f.read())
+# finally:
+#     if f:
+#         f.close()
+#         print('END')
+
+# with open('./python-/test.text','r') as f:
+#     print(f.read())
+
+# f = open('./python-/test.text','a')
+# f.write('11133311')
+# f.close()
+# for line in f.readlines():
+#     print(line.strip())
+
+# from io import StringIO
+# f = StringIO('Hello!\nHi!\nGoodbye!')
+# print(f)
+# while True:
+#     s = f.readline()
+#     if s == '':
+#         break
+#     print(s.strip())
+
+# import os
+# print(os.path.abspath('.'))
+# # os.path.join('/E/项目/04python/Git-python/python-','testdir')
+# os.mkdir('E:/项目/04python/Git-python/python-/inflf')
+# os.rmdir('E:/项目/04python/Git-python/python-/inflf')
+# os.rename('aaa.py','fff.test')
+
+# 序列化
+
+# import pickle
+# d = dict(name='Bob',age=20,score=88)
+# pickle.dumps(d)
+
+# f= open('fff.test','rb')
+# d = pickle.load(f)
+# f.close()
+# print(d)
+
+# import json
+# d = dict(name='yuhongyang',age=22,score=88)
+# print(d,json.dumps(d))
+
+# json_str = '{"age": 20, "score": 88, "name": "Bob"}'
+# print(json.loads(json_str))
+
+# from multiprocessing import Process
+# import os
+
+# # 子进程要执行的代码
+# def run_proc(name):
+#     print('Run child process %s (%s)...' %(name,os.getpid()))
+# if __name__ == '__main__':
+#     print('Parent process will start')
+#     p = Process(target=run_proc,args=('test',))
+#     print('Child process will start.')
+#     p.start()
+#     p.join()
+#     print('Child process end.')
+
+# import subprocess
+
+# print('$ nslookup www.python.org')
+# r = subprocess.call(['nslookup', 'www.python.org'])
+# print('Exit code:', r)
+
+from multiprocessing import Process,Queue
+import os,time,random
+
+# 写数据进程执行的代码
+def write(q):
+    print('Process to write: %s' % os.getpid())
+    for value in ['A','B','C']:
+        print('Put %s to queue...' % value)
+        q.put(value)
+        time.sleep(random.random())
+
+# 读数据进程执行的代码
+# def read(q):
+#     print('Process to read: %s' %os.getpid())
+#     while True:
+#         value = q.get(True)
+#         print('Get %s from queue.' %value)
+# if __name__ == '__main__':
+#     # 父进程创建Queue,并传给各个子进程
+#     q = Queue()
+#     pw = Process(target=write,args=(q,))
+#     pr = Process(target=read,args=(q,))
+#     # 启动子进程pw,写入：
+#     pw.start()
+#     # 启动子进程pr，读取
+#     pr.start()
+#     # 等待pw结束：
+#     pw.join()
+#     # pr进程里是死循环，无法等待期结束，只能强行终止：
+#     pr.terminate()
+# def process_student(name):
+#     std = Student(name)
+#     do_task1(std)
+#     do_task2(std)
+# def do_task1(std):
+#     do_subtask_1(std)
+#     do_subtask_2(std)
+# def do_task2(std):
+#     do_subtask_2(std)
+#     do_subtask_2(std)
+# import threading
+# global_dict = {}
+# def std_thread(name):
+#     print(threading.current_thread())
+#     # std = Student(name)
+#     # 吧std放到全局变量global)_dict中“
+#     # global_dict[threading.current_thread()] = std
+# std_thread('fds')
+# print(global_dict)
+
+import threading
+local_school = threading.local()
+def process_student():
+    # 获取当前线程关联的student
+    std = local_school.Student
+    print('Hello, %s (in %s)' % (std,threading.current_thread().name))
+def process_thread(name):
+    local_school.student = name
+    process_student()
+
+t1 = threading.Thread(target=process_thread,args=('Alice'),name='Thread-A')
+t2 = threading.Thread(target=process_thread,args=('Bob'),name="Thread-B")
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+
+[
+    {
+        id:'',
+    }
+]
+
+let arryList = []
+arr = [2,5,4,8,9]
+arr.forEach((item)=>{
+    arryList.push({
+        'id':item
+    })
+})
