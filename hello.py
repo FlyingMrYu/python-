@@ -763,34 +763,38 @@ def write(q):
 # std_thread('fds')
 # print(global_dict)
 
-import threading
-local_school = threading.local()
-def process_student():
-    # 获取当前线程关联的student
-    std = local_school.Student
-    print('Hello, %s (in %s)' % (std,threading.current_thread().name))
-def process_thread(name):
-    local_school.student = name
-    process_student()
+# import threading
+# local_school = threading.local()
+# def process_student():
+#     # 获取当前线程关联的student
+#     std = local_school.Student
+#     print('Hello, %s (in %s)' % (std,threading.current_thread().name))
+# def process_thread(name):
+#     local_school.student = name
+#     process_student()
 
-t1 = threading.Thread(target=process_thread,args=('Alice'),name='Thread-A')
-t2 = threading.Thread(target=process_thread,args=('Bob'),name="Thread-B")
-t1.start()
-t2.start()
-t1.join()
-t2.join()
+# t1 = threading.Thread(target=process_thread,args=('Alice'),name='Thread-A')
+# t2 = threading.Thread(target=process_thread,args=('Bob'),name="Thread-B")
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
 
 
-[
-    {
-        id:'',
-    }
-]
+# [
+#     {
+#         id:'',
+#     }
+# ]
 
-let arryList = []
-arr = [2,5,4,8,9]
-arr.forEach((item)=>{
-    arryList.push({
-        'id':item
-    })
-})
+# let arryList = []
+# arr = [2,5,4,8,9]
+# arr.forEach((item)=>{
+#     arryList.push({
+#         'id':item
+#     })
+# })
+
+
+print('123')
+
