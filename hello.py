@@ -713,16 +713,16 @@
 # r = subprocess.call(['nslookup', 'www.python.org'])
 # print('Exit code:', r)
 
-from multiprocessing import Process,Queue
-import os,time,random
+# from multiprocessing import Process,Queue
+# import os,time,random
 
 # 写数据进程执行的代码
-def write(q):
-    print('Process to write: %s' % os.getpid())
-    for value in ['A','B','C']:
-        print('Put %s to queue...' % value)
-        q.put(value)
-        time.sleep(random.random())
+# def write(q):
+#     print('Process to write: %s' % os.getpid())
+#     for value in ['A','B','C']:
+#         print('Put %s to queue...' % value)
+#         q.put(value)
+#         time.sleep(random.random())
 
 # 读数据进程执行的代码
 # def read(q):
@@ -763,34 +763,89 @@ def write(q):
 # std_thread('fds')
 # print(global_dict)
 
-import threading
-local_school = threading.local()
-def process_student():
-    # 获取当前线程关联的student
-    std = local_school.Student
-    print('Hello, %s (in %s)' % (std,threading.current_thread().name))
-def process_thread(name):
-    local_school.student = name
-    process_student()
+# import threading
+# local_school = threading.local()
+# def process_student():
+#     # 获取当前线程关联的student
+#     std = local_school.Student
+#     print('Hello, %s (in %s)' % (std,threading.current_thread().name))
+# def process_thread(name):
+#     local_school.student = name
+#     process_student()
 
-t1 = threading.Thread(target=process_thread,args=('Alice'),name='Thread-A')
-t2 = threading.Thread(target=process_thread,args=('Bob'),name="Thread-B")
-t1.start()
-t2.start()
-t1.join()
-t2.join()
+# t1 = threading.Thread(target=process_thread,args=('Alice'),name='Thread-A')
+# t2 = threading.Thread(target=process_thread,args=('Bob'),name="Thread-B")
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
 
 
-[
-    {
-        id:'',
-    }
-]
+# [
+#     {
+#         id:'',
+#     }
+# ]
 
-let arryList = []
-arr = [2,5,4,8,9]
-arr.forEach((item)=>{
-    arryList.push({
-        'id':item
-    })
-})
+# let arryList = []
+# arr = [2,5,4,8,9]
+# arr.forEach((item)=>{
+#     arryList.push({
+#         'id':item
+#     })
+# })
+
+# task_master.py
+
+# import time, sys, queue
+# from multiprocessing.managers import BaseManager
+
+# # 创建类似的QueueManager:
+# class QueueManager(BaseManager):
+#     pass
+
+# # 由于这个QueueManager只从网络上获取Queue，所以注册时只提供名字:
+# QueueManager.register('get_task_queue')
+# QueueManager.register('get_result_queue')
+
+# # 连接到服务器，也就是运行task_master.py的机器:
+# server_addr = '127.0.0.1'
+# print('Connect to server %s...' % server_addr)
+# # 端口和验证码注意保持与task_master.py设置的完全一致:
+# m = QueueManager(address=(server_addr, 5000), authkey=b'abc')
+# # 从网络连接:
+# m.connect()
+# # 获取Queue的对象:
+# task = m.get_task_queue()
+# result = m.get_result_queue()
+# # 从task队列取任务,并把结果写入result队列:
+# for i in range(10):
+#     try:
+#         n = task.get(timeout=1)
+#         print('run task %d * %d...' % (n, n))
+#         r = '%d * %d = %d' % (n, n, n*n)
+#         time.sleep(1)
+#         result.put(r)
+#     except Queue.Empty:
+#         print('task queue is empty.')
+# # 处理结束:
+# print('worker exit.')
+
+# Python的分布式进程接口简单，封装良好，适合需要把繁重任务分布到多台机器的环境下。
+# 注意Queue的作用是用来传递任务和接收结果，每个任务的描述数据量要尽量小。
+# 比如发送一个处理日志文件的任务，就不要发送几百兆的日志文件本身，而是发送日志文件存放的完整路径，由Worker进程再去共享的磁盘上读取文件。
+
+# import re
+# # test = 'a b  c'
+# # m = re.match('')
+# # # print(test.split(' '))
+# # print(re.split(r'\s+',test))
+
+# m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+# print(m.group(1))
+
+from datetime import datetime
+
+d = datetime(2020,12,12,12,12)
+
+print(d)
