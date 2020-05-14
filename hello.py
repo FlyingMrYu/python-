@@ -844,8 +844,5 @@
 # m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
 # print(m.group(1))
 
-from datetime import datetime
 
-d = datetime(2020,12,12,12,12)
 
-print(d)
